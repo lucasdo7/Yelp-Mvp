@@ -4,6 +4,16 @@
     <p>phone_number: <%= @restaurant.phone_number %></p>
     <p>category: <%= @restaurant.category %></p>
 
-  <%= link_to "Back", restaurants_path, class: 'btn btn-danger btn-sm' %>
-  <%= link_to "New Review",  new_restaurant_review_path(@restaurant), class: 'btn btn-success btn-sm' %>
+  <h2>Reviews</h2>
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        <%= review.content %> - <%= review.rating %> ⭐
+      </li> <br>
+    <% end %>
+  </ul>
+
+  <%= link_to "Back", restaurants_path, class: 'btn btn-danger btn-sm mb-3' %>
+
+  <%= link_to "New Review",  new_restaurant_review_path(@restaurant), class: 'btn btn-success btn-sm mb-3' %>
 </div>

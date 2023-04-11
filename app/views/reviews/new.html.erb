@@ -1,7 +1,14 @@
-<h1>New review</h1>
+<div class="container mt-3">
 
-<%= simple_form_for [@restaurant, @review] do |f| %>
+  <h1>New review</h1>
+
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
   <%= f.input :content, placeholder: "what do you think about the restaurant" %>
   <%= f.input :rating, collection: 0..5 %>
   <%= f.submit "Submit", class: 'btn btn-success btn-sm' %>
-<% end %>
+  <% end %>
+</div>
