@@ -22,6 +22,20 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:id])
+
+    if @restaurant.update(restaurant_params)
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
 
   private
 
