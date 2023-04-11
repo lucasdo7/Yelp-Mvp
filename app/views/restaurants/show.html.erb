@@ -1,17 +1,24 @@
 <div class="container mt-3">
   <h1><%= @restaurant.name %></h1>
-    <p class="mt-3"> Address: <%= @restaurant.address %> </p>
-    <p>phone_number: <%= @restaurant.phone_number %></p>
-    <p>category: <%= @restaurant.category %></p>
 
-  <h2>Reviews</h2>
-  <ul>
-    <% @restaurant.reviews.each do |review| %>
-      <li>
-        <%= review.content %> - <%= review.rating %> ⭐
-      </li> <br>
-    <% end %>
-  </ul>
+    <p class="my-3">Is a famous restaurant where stays in <strong><%= @restaurant.address %> </strong>Street</p>
+    <p>The main specialty of this restaurant is <strong><%= @restaurant.category %></strong></p>
+    <p>Call them or send a message <strong><%= @restaurant.phone_number %></strong></p>
+
+
+  <% if @restaurant.reviews.empty? %>
+    <%= "You dont have Reviews yet" %>
+  <% else %>
+    <h2>Reviews:</h2>
+    <ul>
+      <% @restaurant.reviews.each do |review| %>
+        <li>
+          <%= review.content %> - <%= review.rating %> ⭐
+        </li> <br>
+      <% end %>
+    </ul>
+  <% end %>
+  <br> <br>
 
   <%= link_to "Back", restaurants_path, class: 'btn btn-danger btn-sm mb-3' %>
 
