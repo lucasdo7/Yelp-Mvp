@@ -1,4 +1,7 @@
 
+Restaurant.destroy_all
+Review.destroy_all
+
 puts 'Creating 20 fake restaurants...'
 20.times do
   restaurant = Restaurant.new(
@@ -8,8 +11,6 @@ puts 'Creating 20 fake restaurants...'
     category: %w[chinese italian japanese french belgian].sample
   )
   restaurant.save!
-
-  puts "creating reviews"
 
   5..10.times do
     review = Review.new(

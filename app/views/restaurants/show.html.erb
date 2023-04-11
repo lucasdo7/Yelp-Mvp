@@ -18,4 +18,7 @@
   <%= link_to "New Review", new_restaurant_review_path(@restaurant), class: 'btn btn-success btn-sm mb-3' %>
 
   <%= link_to "Update", edit_restaurant_path(@restaurant), class: 'btn btn-success btn-sm mb-3' %>
+
+  <%= link_to "Delete", restaurant_path(@restaurant), data: { turbo_method: :delete, turbo_confirm: "are you sure?" }, class: 'btn btn-danger btn-sm mb-3' %>
+
 </div>
