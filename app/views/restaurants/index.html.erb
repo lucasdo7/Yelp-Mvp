@@ -1,11 +1,19 @@
 <div class="container">
-  <h1>Restaurants</h1>
+  <h1>Restaurants</h1> <hr>
+
+
+  <%= link_to new_restaurant_path(@restaurant) do %>
+    <i class="btn btn-primary"> New Restaurant </i>
+  <% end %>
+
+<br> <br>
 
   <ul>
-  <% @restaurants.each do |restaurant| %>
-  <li style="list-style: none;">
-    <p><strong>name</strong>: <%= link_to restaurant.name, restaurant_path(restaurant), class: 'text-decoration-none' %></p>
-  </li>
-  <% end %>
-  </ul>
+    <% @restaurants.each do |restaurant| %>
+      <li style="list-style: none;">
+        <p><strong>name</strong>: <%= link_to restaurant.name, restaurant_path(restaurant), class: 'text-decoration-none' %></p>
+      </li>
+    <% end %>
+  </ul> <hr>
+
 </div>
