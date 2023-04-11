@@ -8,6 +8,26 @@ class RestaurantsController < ApplicationController
   def show
   end
 
+  def chinese
+    @restaurants = Restaurant.all.where(category: 'chinese')
+  end
+
+  def italian
+    @restaurants = Restaurant.all.where(category: 'italian')
+  end
+
+  def japanese
+    @restaurants = Restaurant.all.where(category: 'japanese')
+  end
+
+  def french
+    @restaurants = Restaurant.all.where(category: 'french')
+  end
+
+  def belgian
+    @restaurants = Restaurant.all.where(category: 'belgian')
+  end
+
   def new
     @restaurant = Restaurant.new
   end
